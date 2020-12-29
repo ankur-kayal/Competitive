@@ -1,0 +1,15 @@
+[
+	{
+		"correct_answers":
+		[
+			"-1 0\n1 2\n0 0\n0 1"
+		],
+		"test": "4\nL\nRUUDL\nLLUU\nDDDUUUUU\n"
+	},
+	{
+		"test": "1\nRRL\n"
+	},
+	{
+		"test": "22\nL\nR\nD\nU\nLL\nDL\nUL\nRR\nDR\nUR\nLD\nRD\nDD\nLU\nRU\nUU\nLLL\nRLL\nDLL\nULL\nLRL\nRRL\nDRL\nURL\nLDL\nRDL\nDDL\nUDL\nLUL\nRUL\nDUL\nUUL\nLLR\nRLR\nDLR\nULR\nLRR\nRRR\nDRR\nURR\nLDR\nRDR\nDDR\nUDR\nLUR\nRUR\nDUR\nUUR\nLLD\nRLD\nDLD\nULD\nLRD\nRRD\nDRD\nURD\nLDD\nRDD\nDDD\nUDD\nLUD\nRUD\nDUD\nUUD\nLLU\nRLU\nDLU\nULU\nLRU\nRRU\nDRU\nURU\nLDU\nRDU\nDDU\nUDU\nLUU\nRUU\nDUU\nUUU\nLLLL\nRLLL\nDLLL\nULLL\nLRLL\nDRLL\nURLL\nLDLL\nRDLL\nDDLL\nUDLL\nLULL\nRULL\nDULL\nUULL\nLLRL\nDLRL\nULRL\nRRRL\nDRRL\nURRL"
+	}
+]

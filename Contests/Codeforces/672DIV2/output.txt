@@ -1,0 +1,1 @@
+Assertion failed: i<(int)a.size(), file D:\Programming\competitive\Codeforces\672DIV2\A.cpp, line 16

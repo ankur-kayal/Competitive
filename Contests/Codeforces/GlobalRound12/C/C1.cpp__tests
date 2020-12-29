@@ -1,0 +1,11 @@
+[
+	{
+		"test": "3\n3\n.X.\nXXX\n.X.\n6\nXX.XXX\nXXXXXX\nXXX.XX\nXXXXXX\nXX.X.X\nXXXXXX\n5\nXXX.X\n.X..X\nXXX.X\n..X..\n..X..\n"
+	},
+	{
+		"test": "1\n3\nXXX\nXXX\nXXX\n"
+	},
+	{
+		"test": "1\n6\nXX.XXX\nXXXXXX\nXXX.XX\nXXXXXX\nXX.X.X\nXXXXXX"
+	}
+]

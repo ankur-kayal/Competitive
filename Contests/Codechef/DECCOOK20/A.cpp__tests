@@ -1,0 +1,11 @@
+[
+	{
+		"test": "4\n2\nsetPassword 000A\nauthorize 108738450\nauthorize 108738449\nauthorize 244736787\n"
+	},
+	{
+		"test": "5\n2\nsetPassword 1\nsetPassword 2\nsetPassword 3\nauthorize 49\nauthorize 50\n"
+	},
+	{
+		"test": "5\n2\nsetPassword 1\nsetPassword 2\nsetPassword 3\nauthorize 49\nauthorize 50\n"
+	}
+]

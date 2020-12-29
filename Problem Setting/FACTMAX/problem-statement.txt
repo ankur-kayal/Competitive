@@ -1,0 +1,65 @@
+This is the problem statement without the story.
+
+You are given an array a of n elements(1 based indexing). You have to perform the following queries:
+
+a) 1 index val : update A_index to val
+b) 2 l r : find such A_i in the range A_l to A_r such that it has the maximum number of divisors out of all A_i in the range A_l to A_r. If there exists multiple A_i such that it has the maximum number of divisors, output the A_i which has the largest value.
+
+Input constraints:
+
+1 <= N <= 3e5
+1 <= A_i <= 1e6
+1 <= Q <= 3e5
+1 <= l <= r <= N
+1 <= val <= 1e6
+1 <= index <= N
+
+
+Input Format:
+
+The first line contains 2 integers N,Q, the length of the array and the number of queries
+The next line contains N integers, A_1, A_2, .... , A_N
+The next Q lines contains 3 integers in each line denoting a query
+
+Output format:
+
+For each query of type 2, find the A_i such that l <= i <= r, which has the maximum number of divisors
+
+
+Subtasks:
+
+Subtask 1: (10 Points)
+1 <= N <= 1000
+1 <= Q <= 1000
+
+Subtask 2: (30 Points)
+1 <= N <= 3e5
+1 <= Q <= 3e5
+
+There is no query of type 1.
+
+Subtask 3: (60 Points)
+Original Constraints
+
+
+Editorial:
+
+We can precompute the number of divisors for all A_i in NlogA time using seive of Eratosthenes.
+
+For subtask 1:  We can do brute force. For each query we can linear scan and find our answer
+
+For subtask 2: As there are no updates we can use RMQ to find the answer to each query in O(1) time.
+
+For subtask 3: We can use Segment Trees to do all type of queries in O(logN) time.
+
+Complexity:
+
+Subtask 1:
+O(NlogA + QN) or O(NsqrtA + QN) depending on implementation
+
+Subtask 2: 
+O(NlogA + Q) if one uses RMQ
+O(NlogA + QlogN) if one uses Segment Trees
+
+Subtask 3:
+O(NlogA + QlogN)

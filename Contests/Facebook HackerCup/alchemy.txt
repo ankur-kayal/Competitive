@@ -1,0 +1,190 @@
+Case #1:
+Y
+Case #2:
+Y
+Case #3:
+N
+Case #4:
+Y
+Case #5:
+Y
+Case #6:
+Y
+Case #7:
+N
+Case #8:
+N
+Case #9:
+Y
+Case #10:
+Y
+Case #11:
+N
+Case #12:
+N
+Case #13:
+N
+Case #14:
+Y
+Case #15:
+N
+Case #16:
+N
+Case #17:
+N
+Case #18:
+Y
+Case #19:
+N
+Case #20:
+N
+Case #21:
+Y
+Case #22:
+Y
+Case #23:
+N
+Case #24:
+N
+Case #25:
+N
+Case #26:
+N
+Case #27:
+N
+Case #28:
+N
+Case #29:
+N
+Case #30:
+N
+Case #31:
+N
+Case #32:
+N
+Case #33:
+N
+Case #34:
+N
+Case #35:
+N
+Case #36:
+N
+Case #37:
+N
+Case #38:
+N
+Case #39:
+N
+Case #40:
+N
+Case #41:
+N
+Case #42:
+N
+Case #43:
+N
+Case #44:
+N
+Case #45:
+N
+Case #46:
+N
+Case #47:
+N
+Case #48:
+N
+Case #49:
+N
+Case #50:
+N
+Case #51:
+N
+Case #52:
+N
+Case #53:
+N
+Case #54:
+N
+Case #55:
+N
+Case #56:
+N
+Case #57:
+N
+Case #58:
+N
+Case #59:
+N
+Case #60:
+N
+Case #61:
+N
+Case #62:
+N
+Case #63:
+N
+Case #64:
+N
+Case #65:
+N
+Case #66:
+N
+Case #67:
+N
+Case #68:
+N
+Case #69:
+N
+Case #70:
+N
+Case #71:
+N
+Case #72:
+N
+Case #73:
+N
+Case #74:
+N
+Case #75:
+N
+Case #76:
+N
+Case #77:
+N
+Case #78:
+N
+Case #79:
+N
+Case #80:
+N
+Case #81:
+N
+Case #82:
+N
+Case #83:
+N
+Case #84:
+N
+Case #85:
+N
+Case #86:
+N
+Case #87:
+N
+Case #88:
+N
+Case #89:
+N
+Case #90:
+N
+Case #91:
+N
+Case #92:
+N
+Case #93:
+N
+Case #94:
+N
+Case #95:
+N

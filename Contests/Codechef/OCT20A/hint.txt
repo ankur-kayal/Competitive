@@ -1,0 +1,55 @@
+0 1 2 3 4 5 6 7 8 9
+
+First for 0:
+
+0 -> 0
+
+0 1 -> 1
+
+0 1 2 -> 2 (highest power of 2 so write 2)
+
+0 1 2 3-> 0  
+
+0 1 2 3 4 -> 4 (highest power of 2 so write 4)
+
+0 1 2 3 4 5 -> 0  (greedy process involved)
+ steps : i) 1^4 =4
+0 4 2 3 5
+	ii) 2 ^3 =1
+0 4 1 5
+	iii) 4^5=1
+0 1 1
+	iv) 1^1=0
+0 0
+	v) 0^0=0
+
+
+0 1 2 3 4 5 6 -> 4
+steps :i) 6 ^5 =1
+0 1 2 3 4 1
+       ii)3^2=1
+0 1 1 4 1
+	iii) get 4 finally
+
+0 1 2 3 4 5 6 7 -> 0
+0 1 2 3 4 5 6 7 8->8
+0 1 2 3 4 5 6 7 8 9->0
+
+sum for 0 -> 0+1+2+0+4+0+4+0+8+0=19
+
+same sum for 1 -> 1+2+0+4+0+4+0+8+0=19
+
+sum for 2 -> 19
+
+sum for 3-> 20
+
+sum for 4-> 13
+
+sum for 5-> 21
+
+sum for 6 ->15'
+
+sum for 7-> 16
+
+sum for 8 , 9 -> 9
+

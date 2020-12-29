@@ -1,0 +1,16 @@
+[
+	{
+		"correct_answers":
+		[
+			"[i: 1]  [tmp: 3] \n [i: 2]  [tmp: 4] \n [i: 3]  [tmp: 5] \n3"
+		],
+		"test": "3\n1 2 3\n1 3\n"
+	},
+	{
+		"correct_answers":
+		[
+			"[i: 1]  [tmp: 3] \n [i: 2]  [tmp: 2] \n [i: 3]  [tmp: 5] \n [i: 4]  [tmp: 7] \n [i: 5]  [tmp: 5] \n4"
+		],
+		"test": "5\n10 50 15 6 1\n1 3\n"
+	}
+]

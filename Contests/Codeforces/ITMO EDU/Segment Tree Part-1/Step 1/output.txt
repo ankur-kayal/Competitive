@@ -1,0 +1,5 @@
+3 2
+2 1
+2 3
+
+Time taken by program is : 0.000000 sec 

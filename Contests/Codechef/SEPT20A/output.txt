@@ -1,0 +1,100 @@
+
+For N = 1
+Minimum possible difference: 1
+Case #1: 
+0
+Case #2: 
+1
+Case #3: 
+0
+
+For N = 2
+Minimum possible difference: 3
+Case #1: 
+10
+Case #2: 
+01
+
+For N = 3
+Minimum possible difference: 4
+Case #1: 
+110
+Case #2: 
+001
+
+For N = 4
+Minimum possible difference: 2
+Case #1: 
+1110
+Case #2: 
+0001
+
+For N = 5
+Minimum possible difference: 3
+Case #1: 
+10110
+Case #2: 
+01110
+Case #3: 
+10001
+Case #4: 
+01001
+
+For N = 6
+Minimum possible difference: 1
+Case #1: 
+010110
+Case #2: 
+110110
+Case #3: 
+001001
+Case #4: 
+101001
+
+For N = 7
+Minimum possible difference: 0
+Case #1: 
+0010110
+Case #2: 
+1101001
+
+For N = 8
+Minimum possible difference: 0
+Case #1: 
+10010110
+Case #2: 
+01101001
+
+For N = 9
+Minimum possible difference: 1
+Case #1: 
+100111010
+Case #2: 
+011100110
+Case #3: 
+111100110
+Case #4: 
+010010110
+Case #5: 
+110010110
+Case #6: 
+001101001
+Case #7: 
+101101001
+Case #8: 
+000011001
+Case #9: 
+100011001
+Case #10: 
+011000101
+
+For N = 10
+Minimum possible difference: 1
+Case #1: 
+1011011010
+Case #2: 
+1000111010
+Case #3: 
+0111000101
+Case #4: 
+0100100101

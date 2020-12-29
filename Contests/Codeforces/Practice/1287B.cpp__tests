@@ -1,0 +1,11 @@
+[
+	{
+		"test": "3 3\nSET\nETS\nTSE\n"
+	},
+	{
+		"test": "3 4\nSETE\nETSE\nTSES\n"
+	},
+	{
+		"test": "5 4\nSETT\nTEST\nEEET\nESTE\nSTES\n"
+	}
+]

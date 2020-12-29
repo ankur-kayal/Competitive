@@ -1,0 +1,6 @@
+ACov(A)
+BCov(B)
+CCov(C)
+DCov(D)
+ECov()
+FCov(F)

@@ -1,0 +1,9 @@
+[
+	{
+		"correct_answers":
+		[
+			"PPPP\nRSP\nR"
+		],
+		"test": "3\nRRRR\nRSP\nS\n"
+	}
+]

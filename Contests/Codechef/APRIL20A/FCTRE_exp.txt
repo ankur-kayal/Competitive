@@ -1,0 +1,233 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+
+#define ll long long
+#define pb push_back
+#define mp make_pair
+
+
+const int MAXN = 100005;
+const int MAXM = 100005;
+const int LN = 19;
+const int mod = 1e9 + 7;
+const int mxN = 1e6+10;
+
+int N, M, K, cur, A[MAXN], LVL[MAXN], DP[LN][MAXN];
+int BL[MAXN << 1], ID[MAXN << 1], VAL[MAXN], ANS[MAXM];
+int d[MAXN], l[MAXN], r[MAXN];
+bool VIS[MAXN];
+vector < int > adjList[MAXN];
+vector <int> fact(mxN); // seive ()
+vector <unordered_map<int,int>> store(MAXN); // stores all the prime factors of the cost
+unordered_map <ll,ll> total;
+unordered_map <ll,ll> temp;
+
+struct query{
+	int id, l, r, lc;
+	bool operator < (const query& rhs){
+		return (BL[l] == BL[rhs.l]) ? (r < rhs.r) : (BL[l] < BL[rhs.l]);
+	}
+}Q[MAXM];
+
+ll binpow(ll x, ll y) {
+	x = x % mod;
+	ll res = 1;
+	while(y > 0) {
+		if(y & 1) {
+			res = (res * x) % mod;
+		}
+		x = (x * x) % mod;
+		y = y >> 1;
+	}
+	return res;
+}
+
+// used for calculating the prime factors in logN time
+void seive() {
+	for(int i=1;i<=mxN;i++) {
+		fact[i] = -1;
+	}
+	for(int i=2;i<=mxN;i++) {
+		if(fact[i] == -1) {
+			// primes.pb(i);
+			for(int j=i;j<=mxN;j+=i) {
+				if(fact[j] == -1) {
+					fact[j] = i;
+				}
+			}
+		}
+	}
+}
+ 
+// Set up Stuff
+void dfs(int u, int par){
+	l[u] = ++cur; 
+	ID[cur] = u;
+	for (int i = 1; i < LN; i++) DP[i][u] = DP[i - 1][DP[i - 1][u]];
+	for (int i = 0; i < adjList[u].size(); i++){
+		int v = adjList[u][i];
+		if (v == par) continue;
+		LVL[v] = LVL[u] + 1;
+		DP[0][v] = u;
+		dfs(v, u);
+	}
+	r[u] = ++cur; ID[cur] = u;
+}
+ 
+// Function returns lca of (u) and (v)
+int lca(int u, int v){
+	if (LVL[u] > LVL[v]) swap(u, v);
+	for (int i = LN - 1; i >= 0; i--)
+		if (LVL[v] - (1 << i) >= LVL[u]) v = DP[i][v];
+	if (u == v) return u;
+	for (int i = LN - 1; i >= 0; i--){
+		if (DP[i][u] != DP[i][v]){
+			u = DP[i][u];
+			v = DP[i][v];
+		}
+	}
+	return DP[0][u];
+}
+ 
+void check(int x){
+	// If (x) occurs twice, then don't consider it's value 
+	if ( (VIS[x]) ) {
+        for(auto u: store[x]) {
+            int id = u.first;
+            int val = u.second;
+            temp[id]-=val;
+        }
+    }
+    else if ( (!VIS[x])  ) {
+        for(auto u: store[x]) {
+            int id = u.first;
+            int val = u.second;
+            temp[id]+=val;
+        }
+    }
+    VIS[x] ^= 1;
+}
+ 
+void compute(){
+	
+	// Perform standard Mo's Algorithm
+	int curL = Q[0].l, curR = Q[0].l - 1, res = 0;
+	
+	ll ans = 1;
+	for (int i = 0; i < M; i++){
+		temp.clear();
+		
+		while (curL < Q[i].l) check(ID[curL++]);
+		while (curL > Q[i].l) check(ID[--curL]);
+		while (curR < Q[i].r) check(ID[++curR]);
+		while (curR > Q[i].r) check(ID[curR--]);
+		
+		int u = ID[curL], v = ID[curR];
+		
+		// Case 2
+		if (Q[i].lc != u and Q[i].lc != v) check(Q[i].lc);
+
+		for(auto u: temp) {
+            int id = u.first;
+            int old_val = total[id];
+            int ch = temp[id];
+            ans = (ans * binpow((ll)old_val + 1,(ll)mod-2) ) % mod;
+            ans = (ans * (old_val + ch +1)) % mod;
+            total[id] = old_val + ch;
+        }
+		
+		ANS[Q[i].id] = ans;
+		temp.clear();
+		if (Q[i].lc != u and Q[i].lc != v) check(Q[i].lc);
+
+		for(auto u: temp) {
+            int id = u.first;
+            int old_val = total[id];
+            int ch = temp[id];
+            ans = (ans * binpow((ll)old_val + 1,(ll)mod-2) ) % mod;
+            ans = (ans * (old_val + ch +1)) % mod;
+            total[id] = old_val + ch;
+        }
+	}
+ 
+	for (int i = 0; i < M; i++) 
+		cout << ANS[i] << '\n';
+}
+ 
+int main(){
+
+	ios_base::sync_with_stdio(0); cin.tie(0);
+
+	#ifndef ONLINE_JUDGE
+    // for getting input from input.txt
+    freopen("input.txt", "r+", stdin);
+    // for writing output to output.txt
+    freopen("output.txt", "w+", stdout);
+	#endif
+    seive();
+ 
+	int u, v, x;
+	int t;
+	cin >> t;
+	while(t--){
+		total.clear();
+		store.clear();
+		cin >> N;
+		
+		// Cleanup
+		cur = 0;
+		memset(VIS, 0, sizeof(VIS));
+		memset(VAL, 0, sizeof(VAL));
+		for (int i = 1; i <= N; i++){
+			adjList[i].clear();
+			store[i].clear();
+		}
+		
+		
+		
+		// Inputting Tree
+		for (int i = 1; i < N; i++){
+			cin >> u >> v;
+			adjList[u].push_back(v);
+			adjList[v].push_back(u);
+		}
+
+		// Inputting Values
+		for(int i=1;i<=N;i++) {
+            int val;
+    		cin >> val;
+            A[i] = val;
+            while(val!=1) {
+                store[i][fact[val]]++;
+                val/=fact[val];
+            }
+    	}
+		
+		// Preprocess
+		DP[0][1] = 1;
+		dfs(1, -1);
+		int size = sqrt(cur);
+		// for(int i = 1;i<=N;i++) {
+		// 	cout << i << " " << l[i] << " " << r[i] << '\n';
+		// }
+		// for(int i=1;i<=cur;i++) {
+		// 	cout << ID[i] << " ";
+		// }
+		// cout << '\n';
+		
+		for (int i = 1; i <= cur; i++) BL[i] = (i - 1) / size + 1;
+		cin >> M;
+		for (int i = 0; i < M; i++){
+			cin >> u >> v;
+			Q[i].lc = lca(u, v);
+			if (l[u] > l[v]) swap(u, v);
+			if (Q[i].lc == u) Q[i].l = l[u], Q[i].r = l[v];
+			else Q[i].l = r[u], Q[i].r = l[v];
+			Q[i].id = i;
+		}
+ 
+		sort(Q, Q + M);
+		compute();
+	}
+}

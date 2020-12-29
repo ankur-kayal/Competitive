@@ -1,0 +1,11 @@
+3
+2
+1
+0
+0
+0
+0
+0
+499999999
+
+Time taken by program is : 0.000000 sec 

@@ -1,0 +1,19 @@
+[
+	{
+		"correct_answers":
+		[
+			"2\n1 3 \n1\n2"
+		],
+		"test": "4 2\n1 2\n2 3\n"
+	},
+	{
+		"correct_answers":
+		[
+			"[node: 3]  [col[node]: 0]  [u: 1]  [col[u]: 0] \n-1"
+		],
+		"test": "3 3\n1 2\n2 3\n1 3\n"
+	},
+	{
+		"test": "10 9\n2 5\n2 4\n2 7\n2 9\n2 3\n2 8\n2 6\n2 10\n2 1\n"
+	}
+]

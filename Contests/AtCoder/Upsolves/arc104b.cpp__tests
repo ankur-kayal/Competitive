@@ -1,0 +1,11 @@
+[
+	{
+		"test": "4 AGCT\n"
+	},
+	{
+		"test": "4 ATAT\n"
+	},
+	{
+		"test": "10 AAATACCGCG\n"
+	}
+]
