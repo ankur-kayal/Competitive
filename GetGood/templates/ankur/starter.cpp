@@ -39,7 +39,8 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 #define trav(a,x) for (auto& a : x)
 #define uid(a, b) uniform_int_distribution<int>(a, b)(rng)
 
-//----------------------------------- DEFINES -------------------------------- 
+//----------------------------------- DEFINES ----------------------------------- 
+
 #define sz(x) (int)(x).size()
 #define mp make_pair
 #define eb emplace_back
