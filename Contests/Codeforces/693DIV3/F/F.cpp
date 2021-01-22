@@ -54,7 +54,23 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 //----------------------------------- END DEFINES -------------------------------- 
 
 void run_cases() {
+    int n,m;
+    cin >> n >> m;
 
+    int grid[3][n+1];
+    for(int i=1;i<=3;i++) {
+        for(int j=1;j<=n;j++) {
+            grid[i][j] = 0;
+        }
+    }
+
+    for(int i=0;i<m;i++) {
+        int x,y;
+        cin >> x >> y;
+        grid[x][y] = 1;
+    }
+
+    
 }
 
 int main() {

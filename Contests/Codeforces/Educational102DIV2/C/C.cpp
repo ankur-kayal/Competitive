@@ -53,7 +53,28 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 //----------------------------------- END DEFINES -------------------------------- 
 
 void run_cases() {
+    int n,k;
+    cin >> n >> k;
+    int minVal = k - (n - k);
+    vector<int> ans(k);
+    int index;
+    for(int i=1;i<=k;i++) {
+        if(i == minVal) {
+            index = i;
+            break;
+        }
+        else {
+            ans[i-1] = i;
+        }
+    }
 
+    for(int val = k;index<=k;val--,index++) {
+        ans[index-1] = val;
+    }
+    for(auto u: ans) {
+        cout << u << " ";
+    }
+    cout << '\n';
 }
 
 int main() {
