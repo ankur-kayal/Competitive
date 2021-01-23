@@ -53,49 +53,83 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 //----------------------------------- END DEFINES -------------------------------- 
 
+bool check(vector<int64_t> a) {
+    for(int i=0;i<int(a.size())-1;i++) {
+        if(a[i] > a[i + 1]) return 0;
+        a[i + 1] -= a[i];
+        a[i] = 0;
+    }
+    return a.back() == 0;
+}
+
 void run_cases() {
-    bool used = false;
     int n;
     cin >> n;
     vector<int64_t> a(n);
-    trav(u,a) cin >> u;
-    vector<int64_t> rev(a.begin(), a.end());
-    reverse(all(rev));
-    for(int i=0;i<n-1;i++) {
-        if(a[i] > a[i+1]) {
-            if(!used) {
-                used = true;
-                swap(a[i], a[i+1]);
-                a[i+1] -= a[i];
-            }
-            else {
-                break;
-            }
-        }
-        else {
-            a[i+1] -= a[i];
-        }
-        debug() << imie(a);
+    trav(u, a) cin >> u;
+    if(n == 1) {
+        cout << "NO" << '\n';
+        return;
     }
-    bool used1 = false;
-    for(int i=0;i<n-1;i++) {
-        if(rev[i] > rev[i+1]) {
-            if(!used1) {
-                used1 = true;
-                swap(rev[i], rev[i+1]);
-                rev[i+1] -= rev[i];
-            }
-            else {
-                break;
-            }
+    if(check(a)) {
+        cout << "YES" << '\n';
+        return;
+    }
+    swap(a[0], a[1]);
+    if(check(a)) {
+        cout << "YES" << '\n';
+        return;
+    }
+    swap(a[0], a[1]);
+    swap(a[n-1], a[n-2]);
+    if(check(a)) {
+        cout << "YES" << '\n';
+        return;
+    }
+    swap(a[n-1], a[n-2]);
+
+    vector<int64_t> p(n), s(n);
+    vector<int64_t> b = a;
+    p[0] = b[0];
+
+    for(int i=1;i<n;i++) {
+        if(p[i-1] == -1 or b[i-1] > b[i]) {
+            p[i] = -1;
         }
         else {
-            rev[i+1] -= rev[i];
+            b[i] -= b[i-1];
+            b[i-1] = 0;
+            p[i] = b[i];
         }
-        debug() << imie(rev);
     }
 
-    cout << (a[n-1] == 0 or rev[n-1] == 0 ? "YES" : "NO") << '\n';
+    b = a;
+    s[n-1] = b[n-1];
+    for(int i=n-2;i>=0;i--) {
+        if(s[i+1] == -1 || b[i+1] > b[i]) {
+            s[i] = -1;
+        }
+        else {
+            b[i] -= b[i+1];
+            b[i+1] = 0;
+            s[i] = b[i];
+        }
+    }
+
+    for(int i=1;i+2<n;i++) {
+        vector<int64_t> c = {p[i-1], a[i], a[i+1], s[i+2]};
+        if(p[i-1] == -1 || s[i+2] == -1) {
+            continue;
+        }
+        swap(c[1], c[2]);
+        if(check(c)) {
+            cout << "YES" << '\n';
+            return;
+        }
+    }
+
+    cout << "NO" << '\n';
+
 }
 
 int main() {
