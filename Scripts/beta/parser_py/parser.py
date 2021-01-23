@@ -14,6 +14,8 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 parsed_problems = 0
 template_path = 'D:\\Competitive\\GetGood\\templates\\ankur\\starter.cpp'
 
+sublime_command = "subl "
+
 class ProblemParser(BaseHTTPRequestHandler):
     def _set_response(self):
         self.send_response(200)
@@ -23,6 +25,7 @@ class ProblemParser(BaseHTTPRequestHandler):
     def do_POST(self):
         global parsed_problems
         global template_path
+        global sublime_command
     
         parsed_problems += 1
         content_length = int(self.headers['Content-Length'])
@@ -54,12 +57,15 @@ class ProblemParser(BaseHTTPRequestHandler):
         # copy the starter code
         code_filename = problem_code + '.cpp'
         copy(template_path, os.path.join(current_path, code_filename))
+        starter_file_path = os.path.join(current_path, code_filename)
+        sublime_command = sublime_command + starter_file_path + " "
         print("Problem code: ", problem_code)
         for test in total_tests:
             print(test)
         print(colored("Parsed Problems: "+ str(parsed_problems)+'/'+ str(problem_count), 'green'))
         self._set_response()
         if parsed_problems == problem_count:
+            os.system(sublime_command)
             threading.Thread(target=self.server.shutdown, daemon=True).start()
 
 def competitive_companion_server():
