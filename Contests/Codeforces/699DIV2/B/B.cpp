@@ -55,7 +55,29 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 //----------------------------------- END DEFINES -------------------------------- 
 
 void run_cases() {
-
+    int n,k;
+    cin >> n >> k;
+    vector<int> h(n);
+    trav(u, h) cin >> u;
+    while(k > 0) {
+        bool op = false;
+        for(int i=0;i<n-1;i++) {
+            if(h[i] < h[i + 1]) {
+                h[i]++;
+                k--;
+                if(k == 0) {
+                    cout << i + 1 << nl;
+                    return;
+                }
+                op = true;
+                break;
+            }
+        }
+        if(!op) {
+            cout << -1 << nl;
+            return;
+        }
+    }
 }
 
 int main() {

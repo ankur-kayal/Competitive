@@ -53,8 +53,28 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 //----------------------------------- END DEFINES -------------------------------- 
 
-void run_cases() {
+template<typename T>
+T gcd(T a, T b) {
+    while(b) {
+        swap(b, a %= b);
+    }
+    return a;
+}
 
+void run_cases() {
+    int64_t n,k;
+    cin >> n >> k;
+    vector<int64_t> x(n);
+    trav(u, x) cin >> u;
+    sort(all(x));
+    int64_t hcf = 0;
+    for(int i=1;i<n;i++) {
+        x[i] -= x[0];
+        hcf = gcd(hcf, x[i]);
+    }
+    k -= x[0];
+
+    cout << (k % hcf == 0 ? "YES" : "NO") << '\n';
 }
 
 int main() {

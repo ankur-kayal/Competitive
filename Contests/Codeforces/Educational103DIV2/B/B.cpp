@@ -55,7 +55,19 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 //----------------------------------- END DEFINES -------------------------------- 
 
 void run_cases() {
-
+    int64_t n,k;
+    cin >> n >> k;
+    vector<int64_t> a(n);
+    trav(u, a) cin >> u;
+    int64_t ans = 0;
+    int64_t sum = a[0];
+    for(int i=1;i<n;i++) {
+        int64_t diff = (max(0LL, 100 * a[i] - k * sum) + k - 1) / k;
+        ans += diff;
+        sum = sum +  diff + a[i];
+        debug() << imie(ans) imie(sum);
+    }
+    cout << ans << '\n';
 }
 
 int main() {

@@ -55,7 +55,55 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 //----------------------------------- END DEFINES -------------------------------- 
 
 void run_cases() {
+    int PX, PY;
+    cin >> PX >> PY;
+    string s;
+    cin >> s;
+    int x = 0, y = 0;
+    int left = 0, right = 0, up = 0, down = 0;
+    for(auto u: s) {
+        if(u == 'R') {
+            right++;
+            x++;
+        }
+        if(u == 'L') {
+            left++;
+            x--;
+        }
+        if(u == 'U') {
+            up++;
+            y++;
+        }
+        if(u == 'D') {
+            down++;
+            y--;
+        }
+    }
 
+    int diffx = x - PX;
+    int diffy = y - PY;
+    debug() << imie(x) imie(y) imie(PX) imie(PY);
+    debug() << imie(diffx) imie(diffy) imie(left) imie(right) imie(up) imie(down);
+    bool ok = true;
+    if(diffx > 0 and right < diffx) {
+        ok = false;
+    }
+    debug() << imie(ok);
+    if(diffx < 0 and left < -diffx) {
+        ok = false;
+    }
+    debug() << imie(ok);
+    if(diffy > 0 and up < diffy) {
+        ok = false;
+    }
+    debug() << imie(ok);
+    if(diffy < 0 and down < -diffy) {
+        ok = false;
+    }
+    debug() << imie(ok);
+
+    cout << (ok ? "YES" : "NO") << nl;
+    
 }
 
 int main() {

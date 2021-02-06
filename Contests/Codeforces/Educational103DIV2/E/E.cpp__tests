@@ -1,0 +1,1 @@
+[{"test": "5 3 4\n_b_d\n__b_\naaaa\nab__\n_bcd\nabcd 4\nabba 2\ndbcd 5\n", "correct_answers": ["YES\n3 2 4 5 1"]}, {"test": "1 1 3\n__c\ncba 1\n", "correct_answers": ["NO"]}, {"test": "2 2 2\na_\n_b\nab 1\nab 2\n", "correct_answers": ["NO"]}]

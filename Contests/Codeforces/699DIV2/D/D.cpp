@@ -54,8 +54,59 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 //----------------------------------- END DEFINES -------------------------------- 
 
-void run_cases() {
+void print_output(vector<int>& seq, int m) {
+    cout << "YES" << nl;
+    for(int i=0;i<=m;i++) {
+        cout << seq[i % seq.size()] + 1 << ' ';
+    }
+    cout << nl;
+}
 
+void run_cases() {
+    int n,m;
+    cin >> n >> m;
+    vector<vector<char>> adj(n, vector<char>(n));
+    for(int i=0;i<n;i++) {
+        for(int j=0;j<n;j++) {
+            cin >> adj[i][j];
+        }
+    }
+    vector<int> seq;
+    for(int i=0;i<n;i++) {
+        for(int j=i+1;j<n;j++) {
+            if(adj[i][j] == adj[j][i]) {
+                seq = {i, j};
+                print_output(seq, m);
+                return;
+            }
+        }
+    }
+
+    if(m & 1) {
+        seq = {0, 1};
+        print_output(seq, m);
+        return;
+    }
+
+    if(n == 2) {
+        cout << "NO" << nl;
+        return;
+    }
+    
+    int a = 0, b = 1, c = 2;
+    while(adj[a][b] != adj[b][c]) {
+        a = (a + 1) % 3;
+        b = (b + 1) % 3;
+        c = (c + 1) % 3;
+    }
+    if((m / 2) & 1) {
+        seq = {a, b, c, b};
+    }
+    else {
+        seq = {b, c, b, a};
+    }
+    print_output(seq, m);
+    
 }
 
 int main() {
