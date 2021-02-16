@@ -1,0 +1,30 @@
+[
+	{
+		"correct_answers":
+		[
+			"10"
+		],
+		"test": "4 1\n"
+	},
+	{
+		"correct_answers":
+		[
+			"30"
+		],
+		"test": "4 2\n"
+	},
+	{
+		"correct_answers":
+		[
+			"100"
+		],
+		"test": "4 3\n"
+	},
+	{
+		"correct_answers":
+		[
+			"4"
+		],
+		"test": "4 0\n"
+	}
+]
