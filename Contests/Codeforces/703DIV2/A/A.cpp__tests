@@ -1,0 +1,12 @@
+[
+	{
+		"correct_answers":
+		[
+			"YES\nYES\nYES\nNO\nNO\nYES"
+		],
+		"test": "6\n2\n1 2\n2\n1 0\n3\n4 4 4\n2\n0 0\n3\n0 1 0\n4\n1000000000 1000000000 1000000000 1000000000\n\n"
+	},
+	{
+		"test": "1\n2\n1 2\n"
+	}
+]

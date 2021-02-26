@@ -1,0 +1,1 @@
+[{"test": "4 2 3\n", "correct_answers": ["Yes\n101000\n100001"]}, {"test": "3 2 1\n", "correct_answers": ["Yes\n10100\n10010"]}, {"test": "3 2 5\n", "correct_answers": ["No"]}]
