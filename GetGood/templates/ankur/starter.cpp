@@ -51,6 +51,10 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 #define rall(x) x.rbegin(), x.rend()
 #define ins insert
 #define nl '\n'
+#define Stringize( L )     #L 
+#define MakeString( M, L ) M(L)
+#define $Line MakeString( Stringize, __LINE__ )
+#define Reminder __FILE__ "(" $Line ") : Warning: "
 
 //----------------------------------- END DEFINES -------------------------------- 
 
