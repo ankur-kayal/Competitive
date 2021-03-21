@@ -1,0 +1,11 @@
+@echo off
+WIREL_choose.exe < "secret/0.in" > "secret/0.bad"
+WIREL_choose.exe < "secret/1.in" > "secret/1.bad"
+WIREL_choose.exe < "secret/2.in" > "secret/2.bad"
+WIREL_choose.exe < "secret/3.in" > "secret/3.bad"
+WIREL_choose.exe < "secret/4.in" > "secret/4.bad"
+WIREL_choose.exe < "secret/5.in" > "secret/5.bad"
+WIREL_choose.exe < "secret/6.in" > "secret/6.bad"
+WIREL_choose.exe < "secret/7.in" > "secret/7.bad"
+WIREL_choose.exe < "secret/8.in" > "secret/8.bad"
+WIREL_choose.exe < "secret/9.in" > "secret/9.bad"
