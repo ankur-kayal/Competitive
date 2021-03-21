@@ -137,7 +137,7 @@ struct segment_tree {
         if(lx >= l and rx <= r) {
             // custom define how you want to update !! Most errors occur Here !!
             #pragma message(Reminder "Define how you want to pass lazy parameters and update, once done comment this")
-            values[x].val = val;
+            // values[x].val = val;
             values[x].lazy = val;
             propagate(x, lx, rx);
             return;
