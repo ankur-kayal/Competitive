@@ -1,0 +1,1 @@
+[{"test": "4\n4 2\nabcd\n3 1\nabc\n4 3\naaaa\n9 3\nabaabaaaa\n", "correct_answers": ["acac\nabc\n-1\nabaabaaab"]}]

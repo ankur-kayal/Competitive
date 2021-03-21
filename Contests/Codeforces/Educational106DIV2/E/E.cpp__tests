@@ -1,0 +1,1 @@
+[{"test": "aaa\nbb\n", "correct_answers": ["24"]}, {"test": "code\nforces\n", "correct_answers": ["1574"]}, {"test": "aaaaa\naaa\n", "correct_answers": ["0"]}, {"test": "justamassivetesttocheck\nhowwellyouhandlemodulooperations\n", "correct_answers": ["667387032"]}]

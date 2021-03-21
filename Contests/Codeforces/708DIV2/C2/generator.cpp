@@ -1,3 +1,4 @@
+#include "testlib.h"
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -51,50 +52,49 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 #define rall(x) x.rbegin(), x.rend()
 #define ins insert
 #define nl '\n'
+#define Stringize( L )     #L 
+#define MakeString( M, L ) M(L)
+#define $Line MakeString( Stringize, __LINE__ )
+#define Reminder __FILE__ "("  ") : Warning: "
 
 //----------------------------------- END DEFINES -------------------------------- 
 
-void run_cases() {
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    trav(u, a) cin >> u;
-    vector<int> first_occurance(n + 1, n + 2), last_occurance(n + 1), count_occurance(n + 1), suffix_max(n + 1);
-    for(int i=0;i<n;i++) {
-        first_occurance[a[i]] = min(first_occurance[a[i]], i);
-        last_occurance[a[i]] = max(last_occurance[a[i]], i);
+//-------------------------- CUSTOM UNORDERED MAP HASH ---------------------------
+
+struct custom_hash{
+    static uint64_t splitmix64(uint64_t x){
+        x += 0x9e3779b97f4a7c15;
+        x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;
+        x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
+        return x ^ (x >> 31);
     }
-
-    for(int i=n-1;i>=0;i--) {
-        count_occurance[a[i]]++;
-        suffix_max[i] = max(suffix_max[i + 1], count_occurance[a[i]]);
+    size_t operator()(uint64_t a) const {
+        static const uint64_t FIXED_RANDOM = chrono::steady_clock::now().time_since_epoch().count();
+        return splitmix64(a + FIXED_RANDOM);
     }
-
-    vector<int> dp(n);
-    int answer = -1;
-    for(int i=0;i<n;i++) {
-        int j = first_occurance[a[i]];
-        if(i == last_occurance[a[i]]) {
-            dp[i] = (j - 1 >= 0 ? dp[j-1] : 0) + count_occurance[a[i]];
-        }
-
-        if(i != 0) {
-            dp[i] = max(dp[i-1], dp[i]);
-        }
-        answer = max(answer, dp[i] + suffix_max[i + 1]);
+    template<class T> size_t operator()(T a) const {
+        static const uint64_t FIXED_RANDOM = chrono::steady_clock::now().time_since_epoch().count();
+        hash<T> x;
+        return splitmix64(x(a) + FIXED_RANDOM);
     }
-
-
-    cout << n - answer << nl;
-}
-
-int main() {
-    ios_base::sync_with_stdio(0); cin.tie(nullptr);
-
-    int tests = 1;
-    // cin >> tests;
-
-    for(int test = 1;test <= tests;test++) {
-        run_cases();
+    template<class T, class H> size_t operator()(pair<T, H> a) const {
+        static const uint64_t FIXED_RANDOM = chrono::steady_clock::now().time_since_epoch().count();
+        hash<T> x;
+        hash<H> y;
+        return splitmix64(x(a.first) * 37 + y(a.second) + FIXED_RANDOM);
     }
+};
+template<class T, class H>using umap=unordered_map<T,H,custom_hash>;
+
+//----------------------- CUSTOM UNORDERED MAP HASH END--------------------------
+const int maxN = 1e9;
+const int maxK = 1e5;
+
+int main(int argc, char *argv[]) {
+    registerGen(argc, argv, 1);
+    println(1);
+    int n = rnd.next(3, maxN);
+    int k = rnd.next(3, min(maxK,n));
+
+    println(n, k);
 }

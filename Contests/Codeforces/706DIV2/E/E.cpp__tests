@@ -1,0 +1,1 @@
+[{"test": "5\n3 3\nX.X\n...\nX.X\n4 4\n....\n.X.X\n....\n.X.X\n5 5\n.X...\n....X\n.X...\n.....\nX.X.X\n1 10\n....X.X.X.\n2 2\n..\n..\n", "correct_answers": ["XXX\n..X\nXXX\nXXXX\n.X.X\n.X..\n.XXX\n.X...\n.XXXX\n.X...\n.X...\nXXXXX\nXXXXXXXXXX\n..\n.."]}]

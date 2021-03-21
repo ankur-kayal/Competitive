@@ -1,0 +1,1 @@
+[{"test": "7\n0010011\n1111010\n", "correct_answers": ["1111111"]}, {"test": "4\n1010\n1101\n", "correct_answers": ["1101"]}]
