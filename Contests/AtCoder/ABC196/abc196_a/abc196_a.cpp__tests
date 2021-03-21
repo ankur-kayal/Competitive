@@ -1,0 +1,23 @@
+[
+	{
+		"correct_answers":
+		[
+			"10"
+		],
+		"test": "0 10\n0 10\n"
+	},
+	{
+		"correct_answers":
+		[
+			"-200"
+		],
+		"test": "-100 -100\n100 100\n"
+	},
+	{
+		"correct_answers":
+		[
+			"200"
+		],
+		"test": "-100 100\n-100 100\n"
+	}
+]
