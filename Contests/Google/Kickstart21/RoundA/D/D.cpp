@@ -34,6 +34,16 @@ sim dor(const c&) { ris; }
 
 //----------------------------------- END DEBUG --------------------------------
 
+// http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0200r0.html
+template<class Fun> class y_combinator_result {
+    Fun fun_;
+public:
+    template<class T> explicit y_combinator_result(T &&fun): fun_(std::forward<T>(fun)) {}
+    template<class ...Args> decltype(auto) operator()(Args &&...args) { return fun_(std::ref(*this), std::forward<Args>(args)...); }
+};
+template<class Fun> decltype(auto) y_combinator(Fun &&fun) { return y_combinator_result<std::decay_t<Fun>>(std::forward<Fun>(fun)); }
+ 
+
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 #define trav(a,x) for (auto& a : x)
@@ -86,6 +96,16 @@ template<class T, class H>using umap=unordered_map<T,H,custom_hash>;
 
 //----------------------- CUSTOM UNORDERED MAP HASH END--------------------------
 
+struct Edge {
+    int weight;
+    int start;
+    int end;
+
+    Edge(int _weight, int _start, int _end) : weight(_weight), start(_start), end(_end) {}
+};
+
+debug & operator << (debug & dd, Edge p) { dd << "(" << p.weight << ", " << p.start << ", " << p.end << ")"; return dd; }
+
 void run_cases() {
     int n;
     cin >> n;
@@ -99,186 +119,72 @@ void run_cases() {
         }
     }
 
+    int64_t ans = 0;
+
     for(int i=0;i<n;i++) {
         for(int j=0;j<n;j++) {
             cin >> B[i][j];
+            ans += B[i][j];
         }
     }
 
-    vector<int> checksum_row(n), checksum_col(n);
+    int garbage;
 
     for(int i=0;i<n;i++) {
-        cin >> checksum_row[i];
+        cin >> garbage;
     }
 
     for(int i=0;i<n;i++) {
-        cin >> checksum_col[i];
+        cin >> garbage;
     }
-    // debug() << nl;
-    // debug() << imie(A);
-    // debug() << imie(B);
-    // debug() << imie(checksum_row);
-    // debug() << imie(checksum_col);
-    // debug() << nl;
 
-    vector<pair<int,int>> row_cnt(n), col_cnt(n);
+    vector<Edge> edges;
+    vector<int> par(2 * n);
 
-    int fill = 0;
+    for(int i=0;i<2*n;i++) {
+        par[i] = i;
+    }
+
     for(int i=0;i<n;i++) {
         for(int j=0;j<n;j++) {
-            if(A[i][j] == 1) {
-                row_cnt[i].first++;
-                col_cnt[j].first++;
-            }
             if(A[i][j] == -1) {
-                row_cnt[i].second++;
-                col_cnt[j].second++;
-                fill++;
+                edges.push_back(Edge(B[i][j], i, j+n));
             }
         }
     }
 
-    int64_t ans = 0;
+    sort(all(edges), [&](Edge a, Edge b) {
+        return a.weight > b.weight;
+    });
 
-    while(fill > 0) {
-        int init_fill = fill;
-        for(int row=0;row<n;row++) {
-            for(int col=0;col<n;col++) {
-                if(A[row][col] == -1) {
-                    if(row_cnt[row].second == 1) {
-                        fill--;
-                        if(checksum_row[row] == 1) {
-                            if(row_cnt[row].first % 2 == 0) {
-                                A[row][col] = 1;
-                                row_cnt[row].first++;
-                                row_cnt[row].second--;
-                                col_cnt[col].first++;
-                                col_cnt[col].second--;
-
-                            }
-                            else {
-                                A[row][col] = 0;
-                                row_cnt[row].second--;
-                                col_cnt[col].second--;
-                            }
-                        }
-                        else {
-                            if(row_cnt[row].first % 2 == 1) {
-                                A[row][col] = 1;
-                                row_cnt[row].first++;
-                                row_cnt[row].second--;
-                                col_cnt[col].first++;
-                                col_cnt[col].second--;
-                            }
-                            else {
-                                A[row][col] = 0;
-                                row_cnt[row].second--;
-                                col_cnt[col].second--;
-                            }
-                        }
-                    }
-
-                    else if(col_cnt[col].second == 1) {
-                        fill--;
-                        if(checksum_col[col] == 1) {
-                            if(col_cnt[col].first % 2 == 0) {
-                                A[row][col] = 1;
-                                row_cnt[row].first++;
-                                row_cnt[row].second--;
-                                col_cnt[col].first++;
-                                col_cnt[col].second--;
-
-                            }
-                            else {
-                                A[row][col] = 0;
-                                row_cnt[row].second--;
-                                col_cnt[col].second--;
-                            }
-                        }
-                        else {
-                            if(col_cnt[col].first % 2 == 1) {
-                                A[row][col] = 1;
-                                row_cnt[row].first++;
-                                row_cnt[row].second--;
-                                col_cnt[col].first++;
-                                col_cnt[col].second--;
-
-                            }
-                            else {
-                                A[row][col] = 0;
-                                row_cnt[row].second--;
-                                col_cnt[col].second--;
-                            }
-                        }
-                    }
-                }
-            }
+    auto find_par = y_combinator([&](auto find_par, int node) -> int {
+        if(par[node] == node) {
+            return par[node];
         }
-        // debug() << imie(A);
-        // debug() << imie(row_cnt) imie(col_cnt);
-        if(init_fill == fill) {
-            fill--;
-            int row = -1;
-            int col = -1;
-            int score = 100000;
-
-            for(int i=0;i<n;i++) {
-                for(int j=0;j<n;j++) {
-                    if(A[i][j] == -1) {
-                        if(B[i][j] < score) {
-                            row = i;
-                            col = i;
-                            score = B[i][j];
-                        }
-                    }
-                }
-            }
-
-            if(checksum_row[row] == 1) {
-                if(row_cnt[row].first % 2 == 0) {
-                    A[row][col] = 1;
-                    row_cnt[row].first++;
-                    row_cnt[row].second--;
-                    col_cnt[col].first++;
-                    col_cnt[col].second--;
-                }
-                else {
-                    A[row][col] = 0;
-                    row_cnt[row].second--;
-                    col_cnt[col].second--;
-                }
-            }
-            else {
-                if(row_cnt[row].first % 2 == 1) {
-                    A[row][col] = 1;
-                    row_cnt[row].first++;
-                    row_cnt[row].second--;
-                    col_cnt[col].first++;
-                    col_cnt[col].second--;
-                }
-                else {
-                    A[row][col] = 0;
-                    row_cnt[row].second--;
-                    col_cnt[col].second--;
-                }
-            }
-
-            ans += score;
-
+        else {
+            return par[node] = find_par(par[node]);
         }
+    });
 
-        // debug() << imie(ans);
+    auto merge = [&](int node1, int node2) -> void {
+        assert(par[node1] != par[node2]);
+        node1 = find_par(node1);
+        node2 = find_par(node2);
+        par[node1] = par[node2];
+    };
 
+    for(auto u: edges) {
+        int weight = u.weight;
+        int start = u.start;
+        int end = u.end;
+        if(find_par(start) != find_par(end)) {
+            ans -= weight;
+            merge(start, end);
+        }
     }
-
-    // debug() << nl;
-    // debug() << imie(A);
-    // debug() << imie(B);
-    // debug() << imie(checksum_row);
-    // debug() << imie(checksum_col);
-    // debug() << nl;
 
     cout << ans << nl;
+    
 }
 
 int main() {
