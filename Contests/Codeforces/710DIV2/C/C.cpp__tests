@@ -1,0 +1,9 @@
+[
+	{
+		"correct_answers":
+		[
+			"0\n2\n13\n3\n20"
+		],
+		"test": "5\na\na\nabcd\nbc\nhello\ncodeforces\nhello\nhelo\ndhjakjsnasjhfksafasd\nadjsnasjhfksvdafdser\n"
+	}
+]

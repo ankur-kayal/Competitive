@@ -1,0 +1,33 @@
+[
+	{
+		"correct_answers":
+		[
+			"odfrces\nezakmi\ncba\nconvexhul\nwfldjgpaxs\nmyneocktxqjpz"
+		],
+		"test": "6\ncodeforces\naezakmi\nabacaba\nconvexhull\nswflldjgpaxs\nmyneeocktxpqjpz\n"
+	},
+	{
+		"test": "1\naaaaaaa\n"
+	},
+	{
+		"test": "1\ngxgpuamkxkszhkbpphykin\n"
+	},
+	{
+		"test": "1\naba\n"
+	},
+	{
+		"test": "1\nbaba\n"
+	},
+	{
+		"test": "1\nbazab\n"
+	},
+	{
+		"test": "1\nsaaba\n"
+	},
+	{
+		"test": "1\nszzbz\n"
+	},
+	{
+		"test": "1\nabcabcabc\n"
+	}
+]

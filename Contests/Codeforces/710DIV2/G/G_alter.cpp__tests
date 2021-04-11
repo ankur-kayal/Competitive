@@ -1,0 +1,24 @@
+[
+	{
+		"correct_answers":
+		[
+			"odfrces\nezakmi\ncba\nconvexhul\nwfldjgpaxs\nmyneocktxqjpz"
+		],
+		"test": "6\ncodeforces\naezakmi\nabacaba\nconvexhull\nswflldjgpaxs\nmyneeocktxpqjpz\n"
+	},
+	{
+		"test": "1\ncabcabcab\n"
+	},
+	{
+		"test": "1\nabcabcabc\n"
+	},
+	{
+		"test": "1\nzzyyzzaabb\n"
+	},
+	{
+		"test": "1\nyyzzaa\n"
+	},
+	{
+		"test": "1\nyyaazza\n"
+	}
+]
