@@ -1,0 +1,1 @@
+[{"test": "3\n5 2\n*a*b*\n5 2\n*a**b\n5 1\nabcde\n", "correct_answers": ["NO\nYES\nNO"]}]

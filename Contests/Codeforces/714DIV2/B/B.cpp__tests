@@ -1,0 +1,16 @@
+[
+	{
+		"correct_answers":
+		[
+			"6\n0\n36\n4"
+		],
+		"test": "4\n3\n1 1 1\n5\n1 2 3 4 5\n5\n0 2 0 3 0\n4\n1 3 5 1\n"
+	},
+	{
+		"correct_answers":
+		[
+			"120"
+		],
+		"test": "1\n5\n1 1 1 1 1\n"
+	}
+]

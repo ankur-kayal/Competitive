@@ -1,0 +1,26 @@
+[
+	{
+		"correct_answers":
+		[
+			"aabacadbb"
+		],
+		"test": "9 4\n"
+	},
+	{
+		"correct_answers":
+		[
+			"aaaaa"
+		],
+		"test": "5 1\n"
+	},
+	{
+		"correct_answers":
+		[
+			"codeforces"
+		],
+		"test": "10 26\n"
+	},
+	{
+		"test": "20 4\n"
+	}
+]
