@@ -1,0 +1,21 @@
+[
+	{
+		"correct_answers":
+		[
+			"YES\nNO\nYES\nNO\nYES"
+		],
+		"test": "5\n3\nTMT\n3\nMTT\n6\nTMTMTT\n6\nTMTTTT\n6\nTTMMTT\n"
+	},
+	{
+		"test": "1\n6\nTMTTMT\n"
+	},
+	{
+		"test": "1\n9\nTMTTMTTMT\n"
+	},
+	{
+		"test": "1\n9\nTMTMTTTMT\n"
+	},
+	{
+		"test": "1\n3\nTTM\n"
+	}
+]
