@@ -1,0 +1,9 @@
+[
+	{
+		"correct_answers":
+		[
+			"DRAW\nANURADHA"
+		],
+		"test": "2\n4 1 3\nABBBCDDE\nEARTH\nINDIA\nUUUFFFDDD\n2 5 7\nSDHHD\nXOXOXOXO\n"
+	}
+]
