@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 vector<int> smallest_factor;
 vector<bool> prime;
 vector<int> primes;
@@ -65,14 +68,38 @@ vector<pair<int64_t, int>> prime_factorize(int64_t n) {
     return result;
 }
  
- 
-int canonicalize(int a) {
-    vector<pair<int64_t, int>> prime_factors = prime_factorize(a);
+vector<int64_t> generate_factors(const vector<pair<int64_t, int>> &prime_factors, bool sorted = false) {
+    // See http://oeis.org/A066150 and http://oeis.org/A036451 for upper bounds on number of factors.
+    static vector<int64_t> buffer;
     int product = 1;
  
     for (auto &pf : prime_factors)
-        if (pf.second % 2 != 0)
-            product *= int(pf.first);
+        product *= pf.second + 1;
  
-    return product;
+    vector<int64_t> factors = {1};
+    factors.reserve(product);
+ 
+    if (sorted)
+        buffer.resize(product);
+ 
+    for (auto &pf : prime_factors) {
+        int64_t p = pf.first;
+        int exponent = pf.second;
+        int before_size = int(factors.size());
+ 
+        for (int i = 0; i < exponent * before_size; i++)
+            factors.push_back(factors[factors.size() - before_size] * p);
+ 
+        if (sorted && factors[before_size - 1] > p)
+            for (int section = before_size; section < int(factors.size()); section *= 2)
+                for (int i = 0; i + section < int(factors.size()); i += 2 * section) {
+                    int length = min(2 * section, int(factors.size()) - i);
+                    merge(factors.begin() + i, factors.begin() + i + section,
+                          factors.begin() + i + section, factors.begin() + i + length,
+                          buffer.begin());
+                    copy(buffer.begin(), buffer.begin() + length, factors.begin() + i);
+                }
+    }
+ 
+    return factors;
 }

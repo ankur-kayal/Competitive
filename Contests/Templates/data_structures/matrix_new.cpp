@@ -47,7 +47,7 @@ public:
             }
         }
 
-        values = result.values;
+        *this = result;
 
         return *this;
     }

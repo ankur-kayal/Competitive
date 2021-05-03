@@ -4,7 +4,7 @@ using namespace std;
 template<typename T, int N>
 struct Matrix {
 
-    static const uint64_t CUTOFF = 15000000180000000540;
+    static const uint64_t CUTOFF = uint64_t(15000000180000000540LL);
     array<array<T, N>, N> values;
 
     Matrix() {
