@@ -12,7 +12,7 @@ from termcolor import colored
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 parsed_problems = 0
-template_path = 'D:\\Competitive\\GetGood\\templates\\ankur\\starter.cpp'
+template_path = 'D:\\Competitive\\Contests\\Templates\\starter.cpp'
 
 sublime_command = "subl "
 
