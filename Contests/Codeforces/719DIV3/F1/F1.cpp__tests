@@ -1,0 +1,9 @@
+[
+	{
+		"correct_answers":
+		[
+			"? 4 6\n\n? 1 1\n\n? 1 2\n\n? 2 2\n\n? 5 5\n\n! 5"
+		],
+		"test": "6 1\n2\n\n2\n\n1\n\n1\n\n0\n\n0\n"
+	}
+]
