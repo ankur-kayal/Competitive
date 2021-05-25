@@ -235,6 +235,7 @@ struct seg_tree {
 struct heavy_light_decomposition {
     vector<int> heavy_child, parent, head, depth, subtree_size, label, order;
     vector<vector<int>> adj;
+    vector<pair<int,int>> subtree_segment;
     seg_tree tree;
  
     void init(int n) {
@@ -244,6 +245,7 @@ struct heavy_light_decomposition {
         subtree_size = vector<int>(n, 1);
         label = vector<int>(n);
         depth = vector<int>(n);
+        subtree_segment = vector<pair<int,int>>(n);
         adj = vector<vector<int>>(n, vector<int>());
         iota(head.begin(), head.end(), 0);
         tree.init(n);
@@ -281,6 +283,7 @@ struct heavy_light_decomposition {
     void accumulate_heavy_segments_and_relabel(int node) {
         order.push_back(node);
         label[node] = int(order.size()) - 1;
+        subtree_segment[node].first = label[node];
         head[heavy_child[node]] = head[node];
         if(heavy_child[node] != node)
             accumulate_heavy_segments_and_relabel(heavy_child[node]);
@@ -290,7 +293,9 @@ struct heavy_light_decomposition {
                 accumulate_heavy_segments_and_relabel(child);
             }
         }
+        subtree_segment[node].second = int(order.size());
     }
+ 
  
     // O(N) build of the segment tree for heavy light decomposition structure
     void build(const vector<int64_t> &values) {
@@ -362,7 +367,7 @@ struct heavy_light_decomposition {
                 tree.update(label1, label2 + 1, segment_change(val));
                 break;
             }
-
+ 
             if(depth[x] > depth[y]) {
                 int label1 = label[u];
                 int label2 = label[x];
@@ -381,5 +386,9 @@ struct heavy_light_decomposition {
                 v = parent[y];
             }
         }
+    }
+ 
+    void update_entire_subtree(int node, const int64_t &val) {
+        tree.update(subtree_segment[node].first, subtree_segment[node].second, segment_change(val));
     }
 };

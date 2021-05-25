@@ -1,0 +1,10 @@
+Check the following submission links for templates
+
+RMQ, LCA, DINIC, CONSTRAINT BIPARTITE MATCHING
+https://codeforces.com/contest/1521/submission/115574965
+
+Grid BFS
+https://codeforces.com/contest/1520/submission/115328620
+
+Djikstra 
+https://codeforces.com/contest/1422/submission/94676170
