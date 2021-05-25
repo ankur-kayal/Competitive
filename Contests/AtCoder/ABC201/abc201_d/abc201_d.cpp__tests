@@ -1,0 +1,23 @@
+[
+	{
+		"correct_answers":
+		[
+			"Takahashi"
+		],
+		"test": "3 3\n---\n+-+\n+--\n"
+	},
+	{
+		"correct_answers":
+		[
+			"Aoki"
+		],
+		"test": "2 4\n+++-\n-+-+\n"
+	},
+	{
+		"correct_answers":
+		[
+			"Draw"
+		],
+		"test": "1 1\n-\n"
+	}
+]

@@ -1,0 +1,23 @@
+[
+	{
+		"correct_answers":
+		[
+			"K2"
+		],
+		"test": "3\nEverest 8849\nK2 8611\nKangchenjunga 8586\n"
+	},
+	{
+		"correct_answers":
+		[
+			"Kita"
+		],
+		"test": "4\nKita 3193\nAino 3189\nFuji 3776\nOkuhotaka 3190\n"
+	},
+	{
+		"correct_answers":
+		[
+			"QCFium"
+		],
+		"test": "4\nQCFium 2846\nchokudai 2992\nkyoprofriends 2432\npenguinman 2390\n"
+	}
+]
