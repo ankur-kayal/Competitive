@@ -1,0 +1,27 @@
+[
+	{
+		"correct_answers":
+		[
+			"2\n3\n1"
+		],
+		"test": "3\nXOX\nXXO\nO_O\nXXX\nOOO\n___\nXOX\nOX_\nXO_\n"
+	},
+	{
+		"test": "1\nXXX\n___\n___\n"
+	},
+	{
+		"test": "1\nXOX\nOXX\nOXO\n"
+	},
+	{
+		"test": "1\nX__\nO__\n__O\n"
+	},
+	{
+		"test": "1\n_XO\nXXO\nX_O\n"
+	},
+	{
+		"test": "1\n___\n___\n___\n"
+	},
+	{
+		"test": "1\nXXX\nOOX\nOOX\n"
+	}
+]
