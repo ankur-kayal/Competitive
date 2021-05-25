@@ -1,0 +1,48 @@
+[
+	{
+		"correct_answers":
+		[
+			"1"
+		],
+		"test": "1\n"
+	},
+	{
+		"correct_answers":
+		[
+			"3"
+		],
+		"test": "2\n"
+	},
+	{
+		"correct_answers":
+		[
+			"6"
+		],
+		"test": "3\n"
+	},
+	{
+		"correct_answers":
+		[
+			"688750769"
+		],
+		"test": "100\n"
+	},
+	{
+		"test": "4\n"
+	},
+	{
+		"test": "5\n"
+	},
+	{
+		"test": "6\n"
+	},
+	{
+		"test": "10\n"
+	},
+	{
+		"test": "1\n"
+	},
+	{
+		"test": "1000000\n"
+	}
+]

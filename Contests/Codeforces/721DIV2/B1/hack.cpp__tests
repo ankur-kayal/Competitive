@@ -1,0 +1,51 @@
+[
+	{
+		"correct_answers":
+		[
+			"BOB\nBOB"
+		],
+		"test": "2\n4\n1001\n1\n0\n"
+	},
+	{
+		"correct_answers":
+		[
+			"BOB"
+		],
+		"test": "1\n6\n100001\n"
+	},
+	{
+		"correct_answers":
+		[
+			"BOB"
+		],
+		"test": "1\n4\n1001\n"
+	},
+	{
+		"correct_answers":
+		[
+			"ALICE"
+		],
+		"test": "1\n5\n10001\n"
+	},
+	{
+		"correct_answers":
+		[
+			"ALICE"
+		],
+		"test": "1\n5\n00000\n"
+	},
+	{
+		"correct_answers":
+		[
+			"BOB"
+		],
+		"test": "1\n6\n101101\n"
+	},
+	{
+		"correct_answers":
+		[
+			"BOB"
+		],
+		"test": "1\n3\n101\n"
+	}
+]
