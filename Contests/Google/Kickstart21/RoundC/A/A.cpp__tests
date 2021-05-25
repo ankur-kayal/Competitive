@@ -1,0 +1,30 @@
+[
+	{
+		"correct_answers":
+		[
+			"Case #1: 2\nCase #2: 8\nCase #3: 3"
+		],
+		"test": "3\n2 3\nbc\n5 5\nabcdd\n1 5\nd\n"
+	},
+	{
+		"test": "1\n5 10\ncbdef\n"
+	},
+	{
+		"test": "1\n3 5\ncda\n"
+	},
+	{
+		"test": "1\n3 5\ndda\n"
+	},
+	{
+		"test": "1\n5 5\ndcaba\n"
+	},
+	{
+		"test": "1\n6 5\neaaaca\n"
+	},
+	{
+		"test": "1\n3 2\nbbb\n"
+	},
+	{
+		"test": "1\n6 4\nabcadc\n"
+	}
+]
