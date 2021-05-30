@@ -1,0 +1,1 @@
+[{"test": "1\n1 R\n2 G\n", "correct_answers": ["1"]}, {"test": "1\n1 B\n2 B\n", "correct_answers": ["0"]}, {"test": "10\n585 B\n293 B\n788 B\n222 B\n772 G\n841 B\n115 R\n603 G\n450 B\n325 R\n851 B\n205 G\n134 G\n651 R\n565 R\n548 B\n391 G\n19 G\n808 B\n475 B\n", "correct_answers": ["0"]}]

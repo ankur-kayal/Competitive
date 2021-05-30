@@ -8,3 +8,6 @@ https://codeforces.com/contest/1520/submission/115328620
 
 Djikstra 
 https://codeforces.com/contest/1422/submission/94676170
+
+Fraction and dp hull
+https://codeforces.com/contest/1388/submission/88495139
