@@ -1,0 +1,9 @@
+[
+	{
+		"correct_answers":
+		[
+			"3\n32767\n0\n0"
+		],
+		"test": "4\n6\na := h\nb := aha\nc = a + b\nc = c + c\ne = c + c\nd = a + c\n15\nx := haha\nx = x + x\nx = x + x\nx = x + x\nx = x + x\nx = x + x\nx = x + x\nx = x + x\nx = x + x\nx = x + x\nx = x + x\nx = x + x\nx = x + x\nx = x + x\nx = x + x\n1\nhaha := hah\n5\nhaahh := aaaha\nahhhh = haahh + haahh\nhaahh = haahh + haahh\nahhhh = ahhhh + haahh\nahhaa = haahh + ahhhh\n"
+	}
+]
