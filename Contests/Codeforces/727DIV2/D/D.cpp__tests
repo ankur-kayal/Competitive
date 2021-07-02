@@ -1,0 +1,16 @@
+[
+	{
+		"correct_answers":
+		[
+			"8"
+		],
+		"test": "3\n3 4\n1 3\n1 5\n"
+	},
+	{
+		"correct_answers":
+		[
+			"12"
+		],
+		"test": "5\n2 7\n2 8\n1 2\n2 4\n1 8\n"
+	}
+]

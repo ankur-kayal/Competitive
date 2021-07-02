@@ -1,0 +1,23 @@
+[
+	{
+		"correct_answers":
+		[
+			"4\n7\n11"
+		],
+		"test": "7 3\nabacaba\n1 3\n2 5\n1 7\n"
+	},
+	{
+		"correct_answers":
+		[
+			"5\n4\n1\n5"
+		],
+		"test": "7 4\nabbabaa\n1 3\n5 7\n6 6\n2 4\n"
+	},
+	{
+		"correct_answers":
+		[
+			"82\n125\n9\n191\n62\n63\n97"
+		],
+		"test": "13 7\nsonoshikumiwo\n1 5\n2 10\n7 7\n1 13\n4 8\n2 5\n3 9\n"
+	}
+]

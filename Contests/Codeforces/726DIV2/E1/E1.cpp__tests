@@ -1,0 +1,16 @@
+[
+	{
+		"correct_answers":
+		[
+			"dbcadabcdbcadabc"
+		],
+		"test": "8 16\ndbcadabc\n"
+	},
+	{
+		"correct_answers":
+		[
+			"aaaaa"
+		],
+		"test": "4 5\nabcd\n"
+	}
+]
