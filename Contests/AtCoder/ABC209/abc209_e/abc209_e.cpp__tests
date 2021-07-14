@@ -1,0 +1,23 @@
+[
+	{
+		"correct_answers":
+		[
+			"Aoki\nTakahashi\nDraw"
+		],
+		"test": "3\nabcd\nbcda\nada\n"
+	},
+	{
+		"correct_answers":
+		[
+			"Draw"
+		],
+		"test": "1\nABC\n"
+	},
+	{
+		"correct_answers":
+		[
+			"Takahashi\nTakahashi\nTakahashi\nAoki\nTakahashi"
+		],
+		"test": "5\neaaaabaa\neaaaacaa\ndaaaaaaa\neaaaadaa\ndaaaafaa\n"
+	}
+]
