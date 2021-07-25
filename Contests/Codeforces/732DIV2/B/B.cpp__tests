@@ -1,0 +1,9 @@
+[
+	{
+		"correct_answers":
+		[
+			"ccccc\ncccc\nkekeke"
+		],
+		"test": "3\n3 5\naaaaa\nbbbbb\nccccc\naaaaa\nbbbbb\n3 4\naaaa\nbbbb\ncccc\naabb\nbbaa\n5 6\nabcdef\nuuuuuu\nkekeke\nekekek\nxyzklm\nxbcklf\neueueu\nayzdem\nukukuk\n"
+	}
+]

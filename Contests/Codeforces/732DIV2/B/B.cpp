@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define nl '\n'
+
+void run_cases() {
+    int N, M;
+    cin >> N >> M;
+    vector<int> A(M);
+    for(int i = 0; i < N; i++) {
+        string s;
+        cin >> s;
+        for(int j = 0; j < M; j++) {
+            A[j] += s[j] - 'a';
+        }
+    }
+    for(int i = 0; i < N - 1; i++) {
+        string s;
+        cin >> s;
+        for(int j = 0; j < M; j++) {
+            A[j] -= s[j] - 'a';
+        }
+    }
+    for(int i = 0; i < M; i++) {
+        cout << char(A[i] + 'a');
+    }
+    cout << endl;
+
+}
+
+int main() {
+    ios_base::sync_with_stdio(0); cin.tie(nullptr);
+
+    int tests = 1;
+    cin >> tests;
+
+    for(int test = 1;test <= tests;test++) {
+        run_cases();
+    }
+}
