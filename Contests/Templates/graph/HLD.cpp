@@ -237,8 +237,10 @@ struct heavy_light_decomposition {
     vector<vector<int>> adj;
     vector<pair<int,int>> subtree_segment;
     seg_tree tree;
+    int N;
  
     void init(int n) {
+        N = n;
         heavy_child = vector<int>(n);
         parent = vector<int>(n);
         head = vector<int>(n);
@@ -248,6 +250,7 @@ struct heavy_light_decomposition {
         subtree_segment = vector<pair<int,int>>(n);
         adj = vector<vector<int>>(n, vector<int>());
         iota(head.begin(), head.end(), 0);
+        iota(parent.begin(), parent.end(), 0);
         tree.init(n);
     }
  
@@ -297,14 +300,31 @@ struct heavy_light_decomposition {
     }
  
  
-    // O(N) build of the segment tree for heavy light decomposition structure
-    void build(const vector<int64_t> &values) {
-        find_heavy_child(0, 0);
-        accumulate_heavy_segments_and_relabel(0);
+    /** O(N) build of the segment tree for heavy light decomposition structure
+        @param roots  -> contains the roots of the forest, if its empty, it would take random roots from the forest
+        @param values -> contains the initial values of the nodes
+    */
+    void build(vector<int> roots, const vector<int64_t> &values) {
+        assert(int(values.size()) == N);
+        if(roots.empty()) {
+            for(int i = 0; i < N; i++) {
+                if(parent[i] == i) {
+                    find_heavy_child(i, i);
+                    accumulate_heavy_segments_and_relabel(i);
+                }
+            }
+            
+        } else {
+            for(int root: roots) {
+                find_heavy_child(root, root);
+                accumulate_heavy_segments_and_relabel(root);
+            }
+        }
+        
+        
         // do segment tree building
         vector<segment> reordered_values(int(values.size()));
-        int n = values.size();
-        for(int i=0;i<n;i++) {
+        for(int i=0;i<N;i++) {
             reordered_values[i] = segment(values[order[i]]);
         }
  
@@ -324,7 +344,10 @@ struct heavy_light_decomposition {
                 if(label1 > label2) {
                     swap(label1, label2);
                 }
-                segment tmp = tree.query(label1, label2 + 1);
+                segment tmp;
+                tmp = tree.query(label1, label2 + 1);
+                // for edge queries comment above and uncomment below
+                // tmp = tree.query(label1 + 1, label2 + 1);
                 res.join(tmp);
                 break;
             }
@@ -365,6 +388,8 @@ struct heavy_light_decomposition {
                     swap(label1, label2);
                 }
                 tree.update(label1, label2 + 1, segment_change(val));
+                // for edge queries comment above and uncomment below
+                // tree.update(label1 + 1, label2 + 1, segment_change(val));
                 break;
             }
  
