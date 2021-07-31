@@ -1,0 +1,12 @@
+[
+	{
+		"correct_answers":
+		[
+			"abc\ndiane\nbbcaabbba\nyouarethecutestuwuu"
+		],
+		"test": "4\n3\n5\n9\n19\n"
+	},
+	{
+		"test": "1\n28\n"
+	}
+]
