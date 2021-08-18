@@ -38,34 +38,55 @@ sim dor(const c&) { ris; }
 //----------------------------------- END DEBUG --------------------------------
 
 void run_cases() {
+    int N;
+    cin >> N;
 
-    int N, M;
-    cin >> N >> M;
-    M++;
-    if(N >= M) {
-        cout << 0 << '\n';
-        return;
+    vector<set<int>> adj(N + 1);
+    for(int i = 0; i < N - 1; i++) {
+        adj[i].insert(i + 1);
     }
 
-    int64_t ans = 0;
-    // int64_t res = 1e18;
-
-    for(int bit = 30; bit >= 0; bit--) {
-        int setN = (N >> bit & 1);
-        int setM = (M >> bit & 1);
-        if(setN && !setM) {
-            break;
-        } 
-        if(!setN && setM) {
-            ans += (1 << bit);
+    for(int i = 0; i < N; i++) {
+        int a;
+        cin >> a;
+        if(a == 0) {
+            adj[i].insert(N);
+        } else {
+            adj[N].insert(i);
         }
     }
 
-    
+    for(int start = 0; start < N - 1; start++) {
+        int nxt = (start + 1) % N;
+        if(adj[start].count(N) && adj[N].count(nxt)) {
+            debug() << imie(start);
+            for(int city = 0; city <= start; city++) {
+                cout << city + 1 << " ";
+            }
+            cout << N + 1 << ' ';
+            for(int city = start + 1; city < N; city++) {
+                cout << city + 1 << " ";
+            }
+            cout << '\n';
+            return;
+        }
+    }
 
-    cout << ans << '\n';
+    if(adj[N - 1].count(N)) {
+        for(int i = 0; i <= N; i++) {
+            cout << i + 1 << " ";
+        }
 
-    // now M >= N, so 0 is no more a choice
+        cout << '\n';
+    } else if(adj[N].count(0)) {
+        cout << N + 1 << " ";
+        for(int i = 0; i < N; i++) {
+            cout << i + 1 << " ";
+        }
+        cout << '\n';
+    } else {
+        cout << -1 << '\n';
+    }
 
 }
 

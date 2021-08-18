@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -38,42 +39,66 @@ sim dor(const c&) { ris; }
 //----------------------------------- END DEBUG --------------------------------
 
 void run_cases() {
-
-    int N, M;
-    cin >> N >> M;
-    M++;
-    if(N >= M) {
-        cout << 0 << '\n';
-        return;
+    int N;
+    cin >> N;
+    vector<int> gap(N);
+    for(auto &u: gap) {
+        cin >> u;
     }
 
-    int64_t ans = 0;
-    // int64_t res = 1e18;
+    debug() << imie(gap);
 
-    for(int bit = 30; bit >= 0; bit--) {
-        int setN = (N >> bit & 1);
-        int setM = (M >> bit & 1);
-        if(setN && !setM) {
-            break;
-        } 
-        if(!setN && setM) {
-            ans += (1 << bit);
+    int ans = 0;
+
+    vector<int> dp(100100, 0);
+    dp[0] = 1;
+    for(int i = 1; i < 100000; i++) {
+        for(auto u: gap) {
+            if(i - u >= 0) {
+                dp[i] = max(dp[i], dp[i - u]);
+            }
         }
     }
 
-    
+    const int maxN = 100000;
 
-    cout << ans << '\n';
+    for(int i = 0; i < maxN; i++) {
+        bool ok = true;
+        vector<int> A(maxN, 1);
+        // iota(A.begin(), A.end(), 1);
 
-    // now M >= N, so 0 is no more a choice
+        A[i] = 0;
 
+        for(int u: gap) {
+            int j;
+            for(int k = u; k < maxN; k++) {
+                int tmp = A[k];
+
+                for(j = k; j >= u && A[j - u] > tmp; j -= u) {
+                    A[j] = A[j - u];
+                }
+                A[j] = tmp;
+            }
+
+            // debug() << imie(A) imie(i);
+        }
+
+        // debug() << imie(A);
+
+        if(!is_sorted(A.begin(), A.end())) {
+            if(dp[i] == 1) {
+                debug() << imie(i);
+            }
+        } else {          
+        }
+    }
 }
 
 int main() {
     ios_base::sync_with_stdio(0); cin.tie(nullptr);
 
     int tests = 1;
-    cin >> tests;
+    // cin >> tests;
 
     for(int test = 1;test <= tests;test++) {
         run_cases();

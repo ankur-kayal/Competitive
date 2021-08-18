@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <queue>
 using namespace std;
 
 #define nl '\n'
@@ -38,35 +39,55 @@ sim dor(const c&) { ris; }
 //----------------------------------- END DEBUG --------------------------------
 
 void run_cases() {
+    int64_t N;
+    cin >> N;
 
-    int N, M;
-    cin >> N >> M;
-    M++;
-    if(N >= M) {
-        cout << 0 << '\n';
-        return;
-    }
+    priority_queue<int, vector<int>, greater<int>> pq;
 
     int64_t ans = 0;
-    // int64_t res = 1e18;
+    for(int i = 0; i < N; i++) {
+        int K;
+        cin >> K;
 
-    for(int bit = 30; bit >= 0; bit--) {
-        int setN = (N >> bit & 1);
-        int setM = (M >> bit & 1);
-        if(setN && !setM) {
+        int cnt = 1;
+        vector<int64_t> A(K);
+        for(auto &u: A)
+            cin >> u;
+
+        int sz = K - 1;
+
+        for(int j = 0; j < K - 1; j++) {
+            if(A[j] <= A[j + 1]) {
+                cnt++;
+                
+            } else {
+                ans += min(cnt, sz);
+                debug() << imie(cnt);
+                pq.push(cnt);
+                cnt = 1;
+            }
+            sz--;
+
+        }
+        debug() << imie(cnt);
+        pq.push(cnt);
+    }
+    debug() << imie(ans);
+    while(pq.size() != 1) {
+        int a = pq.top();
+        pq.pop();
+        if(pq.empty()) {
+            ans += a;
             break;
-        } 
-        if(!setN && setM) {
-            ans += (1 << bit);
+        } else {
+            int b = pq.top();
+            pq.pop();
+            pq.push(a + b);
+            ans += (a + b);
         }
     }
 
-    
-
     cout << ans << '\n';
-
-    // now M >= N, so 0 is no more a choice
-
 }
 
 int main() {

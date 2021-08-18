@@ -1,4 +1,7 @@
 #include <bits/stdc++.h>
+#include <iomanip>
+#include <ios>
+#include <numeric>
 using namespace std;
 
 #define nl '\n'
@@ -38,35 +41,33 @@ sim dor(const c&) { ris; }
 //----------------------------------- END DEBUG --------------------------------
 
 void run_cases() {
+    int N;
+    cin >> N;
+    vector<int64_t> A(N);
+    for(auto &u: A)
+        cin >> u;
 
-    int N, M;
-    cin >> N >> M;
-    M++;
-    if(N >= M) {
-        cout << 0 << '\n';
-        return;
+    sort(A.begin(), A.end());
+
+    int64_t sum = accumulate(A.begin(), A.end(), 0LL);
+
+    int64_t left_sum = A[0], right_sum = sum - A[0];
+    double ans = left_sum + double(right_sum) / (N - 1);
+    debug() << imie(ans);
+    int lc = 1, rc = N - 1;
+    for(int i = 1; i < N - 1; i++) {
+        lc++;
+        rc--;
+        left_sum += A[i];
+        right_sum -= A[i];
+        debug() << imie(left_sum) imie(right_sum);
+        double inter = double(left_sum) / lc + double(right_sum) / rc;
+        debug() << imie(inter);
+        ans = max(ans, double(left_sum) / lc + double(right_sum) / rc);
+        debug() << imie(ans);
     }
 
-    int64_t ans = 0;
-    // int64_t res = 1e18;
-
-    for(int bit = 30; bit >= 0; bit--) {
-        int setN = (N >> bit & 1);
-        int setM = (M >> bit & 1);
-        if(setN && !setM) {
-            break;
-        } 
-        if(!setN && setM) {
-            ans += (1 << bit);
-        }
-    }
-
-    
-
-    cout << ans << '\n';
-
-    // now M >= N, so 0 is no more a choice
-
+    cout << fixed << setprecision(10) << ans << '\n';
 }
 
 int main() {

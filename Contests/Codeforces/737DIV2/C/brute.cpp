@@ -37,36 +37,62 @@ sim dor(const c&) { ris; }
 
 //----------------------------------- END DEBUG --------------------------------
 
-void run_cases() {
+vector<int> elements;
+vector<int> arr;
 
-    int N, M;
-    cin >> N >> M;
-    M++;
-    if(N >= M) {
-        cout << 0 << '\n';
+int ans = 0;
+int N, K;
+
+vector<vector<int>> cache;
+
+bool verify() {
+    int X = 0, A = arr[0];
+    for(auto u: arr) {
+        X ^= u;
+        A &= u;
+    }
+
+    if(A >= X) {
+        ans++;
+        cache.push_back(arr);
+    }
+    return A >= X;
+}
+
+void compute() {
+    if(arr.size() == N) {
+        verify();
         return;
     }
+    for(auto u: elements) {
+        arr.push_back(u);
+        compute();
+        arr.pop_back();
+    }
+}
 
-    int64_t ans = 0;
-    // int64_t res = 1e18;
 
-    for(int bit = 30; bit >= 0; bit--) {
-        int setN = (N >> bit & 1);
-        int setM = (M >> bit & 1);
-        if(setN && !setM) {
-            break;
-        } 
-        if(!setN && setM) {
-            ans += (1 << bit);
-        }
+void run_cases() {
+
+    cin >> N >> K;
+    elements.clear();
+    cache.clear();
+    arr.clear();
+    ans = 0;
+
+    for(int i = 0; i < (1 << K); i++) {
+        elements.push_back(i);
     }
 
-    
+    debug() << imie(elements);
+
+    compute();
+
+    // for(auto u: cache) {
+    //     debug() << imie(u);
+    // }
 
     cout << ans << '\n';
-
-    // now M >= N, so 0 is no more a choice
-
 }
 
 int main() {
@@ -75,7 +101,7 @@ int main() {
     int tests = 1;
     cin >> tests;
 
-    for(int test = 1;test <= tests;test++) {
+    for(int test = 1;test <= tests;test++) {    
         run_cases();
     }
 }

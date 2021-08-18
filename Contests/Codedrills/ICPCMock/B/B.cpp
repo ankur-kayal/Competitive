@@ -38,44 +38,47 @@ sim dor(const c&) { ris; }
 //----------------------------------- END DEBUG --------------------------------
 
 void run_cases() {
+    vector<vector<int>> adj(100100);
 
-    int N, M;
-    cin >> N >> M;
-    M++;
-    if(N >= M) {
-        cout << 0 << '\n';
-        return;
-    }
+    int N;
+    cin >> N;
+    vector<int> gap(N);
+    for(auto &u: gap) 
+        cin >> u;
 
-    int64_t ans = 0;
-    // int64_t res = 1e18;
+    int ans = 0;
 
-    for(int bit = 30; bit >= 0; bit--) {
-        int setN = (N >> bit & 1);
-        int setM = (M >> bit & 1);
-        if(setN && !setM) {
-            break;
-        } 
-        if(!setN && setM) {
-            ans += (1 << bit);
+    for(int i = 0; i < 100000; i++) {
+        int index = i;
+        for(auto u: gap) {
+            index %= u;
+        }
+
+        if(index != 0) {
+            ans++;
         }
     }
 
-    
-
     cout << ans << '\n';
-
-    // now M >= N, so 0 is no more a choice
-
 }
 
 int main() {
     ios_base::sync_with_stdio(0); cin.tie(nullptr);
 
     int tests = 1;
-    cin >> tests;
+    // cin >> tests;
 
     for(int test = 1;test <= tests;test++) {
         run_cases();
     }
 }
+
+/*
+1 1 1 1 1 1 0 1 1 1 1
+
+100
+43
+20
+0
+*/
+

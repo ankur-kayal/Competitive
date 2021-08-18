@@ -1,0 +1,9 @@
+[
+	{
+		"correct_answers":
+		[
+			"BRRBRBR\nBRBRBRB\nB\nB\nBRRBRBBRBR"
+		],
+		"test": "5\n7\n?R???BR\n7\n???R???\n1\n?\n1\nB\n10\n?R??RB??B?\n"
+	}
+]

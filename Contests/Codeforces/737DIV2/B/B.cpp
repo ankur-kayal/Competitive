@@ -1,4 +1,6 @@
+#include <algorithm>
 #include <bits/stdc++.h>
+#include <regex>
 using namespace std;
 
 #define nl '\n'
@@ -38,35 +40,33 @@ sim dor(const c&) { ris; }
 //----------------------------------- END DEBUG --------------------------------
 
 void run_cases() {
+    int N, K;
+    cin >> N >> K;
 
-    int N, M;
-    cin >> N >> M;
-    M++;
-    if(N >= M) {
-        cout << 0 << '\n';
-        return;
-    }
+    vector<int> A(N);
+    for(auto &u: A)
+        cin >> u;
+    vector<int> S = A;
+    sort(S.begin(), S.end());
+    S.erase(unique(S.begin(), S.end()), S.end());
+    debug() << imie(S);
 
-    int64_t ans = 0;
-    // int64_t res = 1e18;
+    int partitions = 1;
 
-    for(int bit = 30; bit >= 0; bit--) {
-        int setN = (N >> bit & 1);
-        int setM = (M >> bit & 1);
-        if(setN && !setM) {
-            break;
-        } 
-        if(!setN && setM) {
-            ans += (1 << bit);
+    for(int i = 0; i < N - 1; i++) {
+        if(A[i] > A[i + 1]) {
+            partitions++;
+        } else {
+            int small_index = lower_bound(S.begin(), S.end(), A[i]) - S.begin();
+            int large_index = lower_bound(S.begin(), S.end(), A[i + 1]) - S.begin();
+            debug() << imie(small_index) imie(large_index);
+            if(large_index - small_index > 1) {
+                partitions++;
+            }
         }
     }
 
-    
-
-    cout << ans << '\n';
-
-    // now M >= N, so 0 is no more a choice
-
+    cout << (partitions <= K ? "YES" : "NO") << '\n';
 }
 
 int main() {
