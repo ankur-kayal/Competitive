@@ -1,10 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int highest_bit(int x) {
-    return x == 0 ? -1 : 31 - __builtin_clz(x);
-}
-
 struct segment_change {
     int64_t to_set;
 
@@ -54,14 +50,19 @@ struct segment {
     }
 };
 
+
+int highest_bit(int x) {
+    return x == 0 ? -1 : 31 - __builtin_clz(x);
+}
+
 pair<int, int> right_half[32];
 
-struct seg_tree {
+struct segment_tree {
     int tree_n = 0;
     vector<segment> tree;
     vector<segment_change> changes;
 
-    seg_tree(int n = -1) {
+    segment_tree(int n = -1) {
         if (n >= 0)
             init(n);
     }
