@@ -1,0 +1,12 @@
+[
+	{
+		"correct_answers":
+		[
+			"9\n17\n12\n29\n14\n3\n9"
+		],
+		"test": "7\n5\nacbac\n8\nacabacba\n12\naaaaaaaaaaaa\n10\nabacabadac\n8\ndcbaabcd\n3\ncba\n6\nsparky\n"
+	},
+	{
+		"test": "1\n16\nbaababaaaabaabab\n"
+	}
+]

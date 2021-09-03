@@ -1,0 +1,24 @@
+[
+	{
+		"correct_answers":
+		[
+			"Case #1: tarts\nCase #2: IMPOSSIBLE"
+		],
+		"test": "2\nstart\njjj\n"
+	},
+	{
+		"test": "1\naaabbb\n"
+	},
+	{
+		"test": "1\nababab\n"
+	},
+	{
+		"test": "1\na\n"
+	},
+	{
+		"test": "1\nabc\n"
+	},
+	{
+		"test": "1\naabbcc\n"
+	}
+]

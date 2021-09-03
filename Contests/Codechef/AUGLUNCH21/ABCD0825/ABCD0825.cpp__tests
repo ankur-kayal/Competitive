@@ -1,0 +1,1 @@
+[{"test": "In:  2 200\nOut: ? 1 0 -2 0\nIn:  >\nOut: ? 0 1 0 -1\nIn:  >\nOut: ! >\nOut: ? 2 0 -2 0\nIn:  =\nOut: ? 5 -3 -5 3\nIn:  =\nOut: ! =\n", "correct_answers": [""]}]

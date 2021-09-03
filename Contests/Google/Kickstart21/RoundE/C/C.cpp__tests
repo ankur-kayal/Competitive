@@ -1,0 +1,15 @@
+[
+	{
+		"correct_answers":
+		[
+			"Case #1: 2\nAA\nA#\nCase #2: 8\nA..A#.\nB##A.A\nBB###A\nABBA#."
+		],
+		"test": "2\n2 2\nA.\n.#\n4 6\nA...#.\nB##...\nB.###.\nA...#.\n"
+	},
+	{
+		"test": "1\n4 6\nA...#.\nB##...\nB.###.\nA...#."
+	},
+	{
+		"test": "1\n2 2\nA.\n.#"
+	}
+]
