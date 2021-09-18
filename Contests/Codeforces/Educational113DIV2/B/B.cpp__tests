@@ -1,0 +1,9 @@
+[
+	{
+		"correct_answers":
+		[
+			"YES\nX==\n=X=\n==X\nNO\nYES\nX--+\n+X++\n+-X-\n--+X"
+		],
+		"test": "3\n3\n111\n2\n21\n4\n2122\n"
+	}
+]
