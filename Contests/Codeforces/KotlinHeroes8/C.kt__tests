@@ -1,0 +1,9 @@
+[
+	{
+		"correct_answers":
+		[
+			"1\n0\n2\n1 2\n0"
+		],
+		"test": "3\n1\nkotlin heroes 1\n2\njoin kotlin 1\nepisode eight 0\n4\nabc abcdef 0\nxyz zzz 1\naaa bba 0\nc d 0\n"
+	}
+]

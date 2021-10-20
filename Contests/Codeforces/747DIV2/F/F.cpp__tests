@@ -1,0 +1,1 @@
+[{"test": "4\n1 1 1\n1 1 2\n100 50 200\n56220 47258 14497\n", "correct_answers": ["YES\nNO\nNO\nYES"]}]
