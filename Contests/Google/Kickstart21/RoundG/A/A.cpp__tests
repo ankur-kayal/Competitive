@@ -1,0 +1,16 @@
+[
+	{
+		"correct_answers":
+		[
+			"Case #1: YES\nCase #2: YES\nCase #3: NO"
+		],
+		"test": "3\n6 10 4 0\nCCDCDD\n4 1 2 0\nCCCC\n4 2 1 0\nDCCD\n"
+	},
+	{
+		"correct_answers":
+		[
+			"Case #1: YES\nCase #2: NO"
+		],
+		"test": "2\n12 4 2 2\nCDCCCDCCDCDC\n8 2 1 3\nDCCCCCDC\n"
+	}
+]
