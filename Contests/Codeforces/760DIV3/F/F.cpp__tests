@@ -1,0 +1,73 @@
+[
+	{
+		"correct_answers":
+		[
+			"YES"
+		],
+		"test": "3 3\n"
+	},
+	{
+		"correct_answers":
+		[
+			"NO"
+		],
+		"test": "7 4\n"
+	},
+	{
+		"correct_answers":
+		[
+			"NO"
+		],
+		"test": "2 8\n"
+	},
+	{
+		"correct_answers":
+		[
+			"YES"
+		],
+		"test": "34 69\n"
+	},
+	{
+		"correct_answers":
+		[
+			"YES"
+		],
+		"test": "8935891487501725 71487131900013807\n"
+	},
+	{
+		"test": "2 5\n"
+	},
+	{
+		"test": "2 2\n"
+	},
+	{
+		"test": "2 1\n"
+	},
+	{
+		"test": "2 7\n"
+	},
+	{
+		"test": "298 3751\n"
+	},
+	{
+		"test": "10 111\n"
+	},
+	{
+		"test": "1310720 11\n"
+	},
+	{
+		"test": "10 2\n"
+	},
+	{
+		"test": "4 231\n"
+	},
+	{
+		"test": "20 607\n"
+	},
+	{
+		"test": "2 2\n"
+	},
+	{
+		"test": "8 8\n"
+	}
+]

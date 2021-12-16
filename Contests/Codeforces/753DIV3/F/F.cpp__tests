@@ -1,0 +1,1 @@
+[{"test": "7\n\n1 1\nR\n\n1 3\nRRL\n\n2 2\nDL\nRU\n\n2 2\nUD\nRU\n\n3 2\nDL\nUL\nRU\n\n4 4\nRRRD\nRUUD\nURUD\nULLR\n\n4 4\nDDLU\nRDDU\nUUUU\nRDLD\n", "correct_answers": ["1 1 1\n1 1 3\n1 1 4\n2 1 3\n3 1 5\n4 3 12\n1 1 4"]}]

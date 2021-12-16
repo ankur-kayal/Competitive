@@ -1,0 +1,19 @@
+[
+	{
+		"correct_answers":
+		[
+			"Case #1: 6\nCase #2: 0"
+		],
+		"test": "2\nabcd\na\npppp\np\n"
+	},
+	{
+		"correct_answers":
+		[
+			"Case #1: 9\nCase #2: 0\nCase #3: 1"
+		],
+		"test": "3\npqrst\nou\nabd\nabd\naaaaaaaaaaaaaaab\naceg\n"
+	},
+	{
+		"test": "1\nzzzzzzz\nay\n\n"
+	}
+]

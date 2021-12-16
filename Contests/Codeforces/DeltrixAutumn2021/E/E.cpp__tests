@@ -1,0 +1,1 @@
+[{"test": "9 12\naaabccccc\n4 a\n4 b\n2 b\n5 a\n1 b\n6 b\n5 c\n2 a\n1 a\n5 a\n6 b\n7 b\n", "correct_answers": ["0\n1\n2\n2\n1\n2\n1\n2\n2\n2\n2\n2"]}]

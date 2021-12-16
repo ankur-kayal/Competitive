@@ -1,0 +1,12 @@
+[
+	{
+		"correct_answers":
+		[
+			"abbaaba\nabaabaa\nbaa\nbbabb"
+		],
+		"test": "4\n7\nab bb ba aa ba\n7\nab ba aa ab ba\n3\naa\n5\nbb ab bb\n"
+	},
+	{
+		"test": "1\n7\nab bb ba aa ba\n"
+	}
+]

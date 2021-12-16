@@ -1,0 +1,19 @@
+[
+	{
+		"correct_answers":
+		[
+			"2\n-1\n3"
+		],
+		"test": "3\n2\naa\n5\ncbabb\n8\ncacabccc\n"
+	},
+	{
+		"correct_answers":
+		[
+			"7"
+		],
+		"test": "1\n7\naccabba\n"
+	},
+	{
+		"test": "1\n9\nacaaccabba\n"
+	}
+]

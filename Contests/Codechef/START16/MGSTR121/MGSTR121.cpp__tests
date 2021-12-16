@@ -1,0 +1,9 @@
+[
+	{
+		"correct_answers":
+		[
+			"Yes\nFEDAABBCD\nNo\nYes\nCAAB\nYes\nFE"
+		],
+		"test": "1\n9\nEFDAABCBD\n4\n1 9 6\n6 8 1\n4 7 3\n1 2 1\n"
+	}
+]
