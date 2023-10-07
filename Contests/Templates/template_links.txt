@@ -11,3 +11,6 @@ https://codeforces.com/contest/1422/submission/94676170
 
 Fraction and dp hull
 https://codeforces.com/contest/1388/submission/88495139
+
+Splay tree with permutation cycles
+https://codeforces.com/contest/1619/submission/140840598

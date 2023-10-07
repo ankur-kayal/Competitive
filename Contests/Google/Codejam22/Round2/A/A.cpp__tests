@@ -1,0 +1,18 @@
+[
+	{
+		"correct_answers":
+		[
+			"Case #1: 2\n2 17\n18 25\nCase #2: IMPOSSIBLE\nCase #3: 2\n11 22\n22 25\nCase #4: IMPOSSIBLE"
+		],
+		"test": "4\n5 4\n5 3\n5 12\n3 1\n"
+	},
+	{
+		"test": "1\n3 8\n"
+	},
+	{
+		"test": "1\n100 200\n"
+	},
+	{
+		"test": "1\n9999 66554488\n"
+	}
+]

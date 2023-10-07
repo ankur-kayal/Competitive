@@ -1,0 +1,23 @@
+[
+	{
+		"correct_answers":
+		[
+			"5"
+		],
+		"test": "atcoder\natcorder\n"
+	},
+	{
+		"correct_answers":
+		[
+			"5"
+		],
+		"test": "million\nmilllion\n"
+	},
+	{
+		"correct_answers":
+		[
+			"3"
+		],
+		"test": "vvwvw\nvvvwvw\n"
+	}
+]

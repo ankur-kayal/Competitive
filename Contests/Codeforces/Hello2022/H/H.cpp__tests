@@ -1,0 +1,1 @@
+[{"test": "8\n1 2 7\n2 3 4\n2 4 3\n4 5 1\n5 6 6\n4 7 10\n6 8 6\n4\nAABABBDB\n11 12 10 42\n16 15 15 30\n4\n6\n3 2\n1 A 10\n3 3\n2 A 3\n3 7\n3 6\n", "correct_answers": ["0\n10\n6\n6"]}]

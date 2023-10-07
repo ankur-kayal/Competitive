@@ -1,0 +1,5 @@
+Step 1:     Calculating the number of correct answers for each player
+Step 2:     Sorting the player base according to the scores received in ascending order
+Step 3:     Now assigning the S_i for the players as the lowest score player have lowest s_i and highest current player have highest s_i
+Step 4:     For each question counting the currect answer the player answered
+Step 5:     assign the smallest value of q_i to the highest answered question

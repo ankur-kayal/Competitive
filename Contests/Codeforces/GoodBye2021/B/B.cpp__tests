@@ -1,0 +1,15 @@
+[
+	{
+		"correct_answers":
+		[
+			"cc\ncbaabc\naa\nbb"
+		],
+		"test": "4\n10\ncodeforces\n9\ncbacbacba\n3\naaa\n4\nbbaa\n"
+	},
+	{
+		"test": "1\n4\nbaab\n"
+	},
+	{
+		"test": "1\n5\nbaaab\n"
+	}
+]

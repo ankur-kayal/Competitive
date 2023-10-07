@@ -1,0 +1,9 @@
+[
+	{
+		"correct_answers":
+		[
+			"Case #1: YES\nCase #2: NO\nCase #3: NO\nCase #4: YES"
+		],
+		"test": "4\n5 1\n5 1 2 4 3\n2 4 3 5 1\n4 10\n3 1 4 2\n1 2 3 4\n4 0\n3 1 4 2\n2 3 1 4\n3 3\n3 2 1\n1 3 2\n"
+	}
+]

@@ -1,0 +1,9 @@
+[
+	{
+		"correct_answers":
+		[
+			"Case #1: IMPOSSIBLE\nCase #2: POSSIBLE"
+		],
+		"test": "2\n9\n100???001\n5\n100??\n"
+	}
+]

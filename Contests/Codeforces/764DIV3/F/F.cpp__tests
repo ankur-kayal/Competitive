@@ -1,0 +1,1 @@
+[{"test": "3\n\n1\n", "correct_answers": ["+ 1\n\n! 3"]}, {"test": "5\n\n0\n\n0\n\n1\n", "correct_answers": ["+ 1\n\n+ 1\n\n+ 1\n\n! 5"]}, {"test": "10\n\n0\n\n0\n\n1\n\n2\n", "correct_answers": ["+ 2\n\n+ 2\n\n+ 3\n\n+ 8\n\n! 20"]}]

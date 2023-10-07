@@ -1,0 +1,16 @@
+[
+	{
+		"correct_answers":
+		[
+			"Case #1: 1\nCase #2: IMPOSSIBLE"
+		],
+		"test": "2\naaaa\naaaaa\nbbbbb\nbbbbc\n"
+	},
+	{
+		"correct_answers":
+		[
+			"Case #1: 2\nCase #2: IMPOSSIBLE"
+		],
+		"test": "2\nIlovecoding\nIIllovecoding\nKickstartIsFun\nkkickstartiisfun\n"
+	}
+]

@@ -1,0 +1,9 @@
+[
+	{
+		"correct_answers":
+		[
+			"hello\nababcdc\nac"
+		],
+		"test": "3\noelhl\nabcdcba\nac\n"
+	}
+]
